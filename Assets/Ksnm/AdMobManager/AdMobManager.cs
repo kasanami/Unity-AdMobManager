@@ -35,13 +35,15 @@ namespace Ksnm
         [SerializeField]
         private string androidInterstitialUnitId;
         [SerializeField]
-        private string[] androidTestDeviceIds;
+        private TestDeviceInfo[] androidTestDeviceInfos;
+
         [SerializeField]
         private string iosBannerUnitId;
         [SerializeField]
         private string iosInterstitialUnitId;
         [SerializeField]
-        private string[] iosTestDeviceIds;
+        private TestDeviceInfo[] iosTestDeviceInfos;
+
         [SerializeField]
         private AdPosition bannerPosition;
 
@@ -137,20 +139,20 @@ namespace Ksnm
 
         private AdRequest Build()
         {
-#if UNITY_ANDROID
-            var deviceIDs = androidTestDeviceIds;
-#elif UNITY_IPHONE
-            var deviceIDs = iosTestDeviceIds;
-#else
-            var deviceIDs = new string[0];
-#endif
             var builder = new AdRequest.Builder();
             if (Debug.isDebugBuild)
             {
+#if UNITY_ANDROID
+                var deviceInfos = androidTestDeviceInfos;
+#elif UNITY_IPHONE
+                var deviceInfos = iosTestDeviceInfos;
+#else
+                var deviceInfos = new TestDeviceInfo[0];
+#endif
                 builder.AddTestDevice(AdRequest.TestDeviceSimulator);
-                foreach (var deviceID in deviceIDs)
+                foreach (var deviceInfo in deviceInfos)
                 {
-                    builder.AddTestDevice(deviceID);
+                    builder.AddTestDevice(deviceInfo.id);
                 }
             }
             return builder.Build();
@@ -194,6 +196,17 @@ namespace Ksnm
                 return;
             }
             interstitial.Show();
+        }
+
+        /// <summary>
+        /// テストデバイスの情報
+        /// ・IDだけだと、どのデバイスなのか分からないので追加
+        /// </summary>
+        [System.Serializable]
+        public class TestDeviceInfo
+        {
+            public string name;
+            public string id;
         }
     }
 }

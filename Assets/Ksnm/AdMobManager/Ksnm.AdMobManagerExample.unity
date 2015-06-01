@@ -208,7 +208,7 @@ CanvasRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 195402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-  m_PrefabInternal: {fileID: 1710404740}
+  m_PrefabInternal: {fileID: 2012532654}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 619490060}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd,
     type: 2}
-  m_PrefabInternal: {fileID: 1710404740}
+  m_PrefabInternal: {fileID: 2012532654}
   m_GameObject: {fileID: 619490058}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -234,18 +234,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidBannerUnitId: 
   androidInterstitialUnitId: 
-  androidTestDeviceIds:
-  - 
+  androidTestDeviceInfos: []
   iosBannerUnitId: 
   iosInterstitialUnitId: 
-  iosTestDeviceIds: []
+  iosTestDeviceInfos: []
   bannerPosition: 1
   bannerSize: 4
 --- !u!4 &619490060
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-  m_PrefabInternal: {fileID: 1710404740}
+  m_PrefabInternal: {fileID: 2012532654}
   m_GameObject: {fileID: 619490058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -683,90 +682,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173839707}
---- !u!1001 &1710404740
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidTestDeviceIDs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidTestDeviceIds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidBanner
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidInterstitial
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: bannerPosition
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidTestDeviceIDs.Array.data[0]
-      value: 502D0E62AAB4EECCF394CB17B029FCB3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: bannerSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidBannerUnitId
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidInterstitialUnitId
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-      propertyPath: androidTestDeviceIds.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
-  m_RootGameObject: {fileID: 619490058}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1780582036
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,3 +748,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780582036}
+--- !u!1001 &2012532654
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495402, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 74a3cea75e398d3408d9551c329e93bd, type: 2}
+  m_RootGameObject: {fileID: 619490058}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1

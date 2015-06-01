@@ -39,13 +39,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e942fefb2fd2bd049ad2349abe0629f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  androidBanner: 
-  androidInterstitial: 
-  androidTestDeviceIDs: []
-  iosBanner: 
-  iosInterstitial: 
-  iosTestDeviceIDs: []
-  bannerPosition: 0
+  androidBannerUnitId: 
+  androidInterstitialUnitId: 
+  androidTestDeviceInfos: []
+  iosBannerUnitId: 
+  iosInterstitialUnitId: 
+  iosTestDeviceInfos: []
+  bannerPosition: 1
+  bannerSize: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
