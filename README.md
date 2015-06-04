@@ -3,7 +3,7 @@ Unity-AdMobManager
 
 AdMob広告を表示するアセット
 
-## 必要なアセット
+## 必要なもの
 
 本アセットを動作させるためには
 Google製のAdMobプラグインが必要です。
