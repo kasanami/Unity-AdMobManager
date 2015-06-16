@@ -238,8 +238,10 @@ MonoBehaviour:
   iosBannerUnitId: 
   iosInterstitialUnitId: 
   iosTestDeviceInfos: []
+  useTestDevice: 0
   bannerPosition: 1
   bannerSize: 4
+  interstitialIntervalMinutes: 3
 --- !u!4 &619490060
 Transform:
   m_ObjectHideFlags: 0

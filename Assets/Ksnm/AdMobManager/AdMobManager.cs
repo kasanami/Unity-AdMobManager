@@ -68,6 +68,13 @@ namespace Ksnm
         [SerializeField]
         private BannerSize bannerSize;
 
+        [SerializeField, Range(0, 60), TooltipAttribute("インタースティシャル広告の再表示が\n可能になるまでの時間(分)")]
+        int interstitialIntervalMinutes = 3;
+        /// <summary>
+        /// インタースティシャル広告が表示可能になる日時
+        /// </summary>
+        System.DateTime interstitialNextPermittedTime;
+
         private InterstitialAd interstitial = null;
 
         /// <summary>
@@ -75,6 +82,7 @@ namespace Ksnm
         /// </summary>
         protected override void OnAwake()
         {
+            interstitialNextPermittedTime = System.DateTime.Now;
             // 起動時にインタースティシャル広告をロード
             LoadInterstitial();
             // バナー広告を表示
@@ -177,6 +185,8 @@ namespace Ksnm
             interstitial = null;
             // 再ロード
             LoadInterstitial();
+            // 次の日時を計算
+            interstitialNextPermittedTime = System.DateTime.Now + System.TimeSpan.FromMinutes(interstitialIntervalMinutes);
         }
 
         /// <summary>
@@ -202,7 +212,11 @@ namespace Ksnm
                 Debug.LogError("InterstitialAdがロードされていません");
                 return;
             }
-            interstitial.Show();
+            // 表示可能になる日時になっていれば表示
+            if (System.DateTime.Now >= interstitialNextPermittedTime)
+            {
+                interstitial.Show();
+            }
         }
 
         /// <summary>
