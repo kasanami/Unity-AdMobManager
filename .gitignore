@@ -17,6 +17,11 @@ Assets/UnityVS
 *.userprefs
 *.pidb
 *.booproj
+Assets/GoogleMobileAds.meta
+Assets/Plugins.meta
+Assets/UnityTestTools.meta
+Assets/UnityVS.meta
+
 
 # Unity3D generated meta files
 *.pidb.meta
