@@ -31,19 +31,22 @@ namespace Ksnm
     /// </summary>
     public class AdMobManager : SingletonMonoBehaviour<AdMobManager>
     {
-        [SerializeField]
+        [SerializeField, HeaderAttribute("Android")]
         private string androidBannerUnitId;
         [SerializeField]
         private string androidInterstitialUnitId;
         [SerializeField]
         private TestDeviceInfo[] androidTestDeviceInfos;
 
-        [SerializeField]
+        [SerializeField, HeaderAttribute("iOS")]
         private string iosBannerUnitId;
         [SerializeField]
         private string iosInterstitialUnitId;
         [SerializeField]
         private TestDeviceInfo[] iosTestDeviceInfos;
+
+        [SerializeField, HeaderAttribute("共通")]
+        public bool useTestDevice;
 
         [SerializeField]
         private AdPosition bannerPosition;
@@ -144,7 +147,7 @@ namespace Ksnm
         private AdRequest Build()
         {
             var builder = new AdRequest.Builder();
-            if (Debug.isDebugBuild)
+            if (useTestDevice)
             {
 #if UNITY_ANDROID
                 var deviceInfos = androidTestDeviceInfos;
