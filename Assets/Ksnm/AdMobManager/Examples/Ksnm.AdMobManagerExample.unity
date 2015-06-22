@@ -213,6 +213,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 619490060}
   - 114: {fileID: 619490059}
+  - 114: {fileID: 619490061}
   m_Layer: 0
   m_Name: AdMobManager
   m_TagString: Untagged
@@ -254,6 +255,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &619490061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 619490058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38cedb2f65e47640825792318c7030c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adMobManager: {fileID: 619490059}
 --- !u!1 &641637018
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619490059}
+      - m_Target: {fileID: 619490061}
         m_MethodName: ShowInterstitial
         m_Mode: 1
         m_Arguments:

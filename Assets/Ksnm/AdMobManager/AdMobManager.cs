@@ -23,6 +23,7 @@ freely, subject to the following restrictions:
 */
 using UnityEngine;
 using GoogleMobileAds.Api;
+using System;
 
 namespace Ksnm
 {
@@ -73,16 +74,18 @@ namespace Ksnm
         /// <summary>
         /// インタースティシャル広告が表示可能になる日時
         /// </summary>
-        System.DateTime interstitialNextPermittedTime;
+        DateTime interstitialNextPermittedTime;
 
         private InterstitialAd interstitial = null;
+
+        public event EventHandler OnInterstitialClosed = delegate { };
 
         /// <summary>
         /// Awakeの代わり
         /// </summary>
         protected override void OnAwake()
         {
-            interstitialNextPermittedTime = System.DateTime.Now;
+            interstitialNextPermittedTime = DateTime.Now;
             // 起動時にインタースティシャル広告をロード
             LoadInterstitial();
             // バナー広告を表示
@@ -108,10 +111,14 @@ namespace Ksnm
                 Debug.LogWarning("ユニットIDが設定されていません");
                 return;
             }
+#if UNITY_EDITOR
+            // エディタではロードは成功するが、なにも表示されず ややこしいのでロードしない。
+#else
             var adSize = GetBannerAdSize();
             BannerView bannerView = new BannerView(adUnitId, adSize, bannerPosition);
             var request = Build();
             bannerView.LoadAd(request);
+#endif
         }
 
         /// <summary>
@@ -133,10 +140,14 @@ namespace Ksnm
                 Debug.LogWarning("ユニットIDが設定されていません");
                 return;
             }
+#if UNITY_EDITOR
+            // エディタではロードは成功するが、なにも表示されず ややこしいのでロードしない。
+#else
             interstitial = new InterstitialAd(adUnitId);
             interstitial.AdClosed += InterstitialClosed;
             var request = Build();
             interstitial.LoadAd(request);
+#endif
         }
 
         private AdSize GetBannerAdSize()
@@ -186,7 +197,9 @@ namespace Ksnm
             // 再ロード
             LoadInterstitial();
             // 次の日時を計算
-            interstitialNextPermittedTime = System.DateTime.Now + System.TimeSpan.FromMinutes(interstitialIntervalMinutes);
+            interstitialNextPermittedTime = DateTime.Now + TimeSpan.FromMinutes(interstitialIntervalMinutes);
+            
+            OnInterstitialClosed(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -204,19 +217,25 @@ namespace Ksnm
         /// <summary>
         /// インタースティシャル広告を表示
         /// </summary>
-        /// <returns>true:成功 false:準備ができていないため失敗</returns>
-        public void ShowInterstitial()
+        /// <returns>true:成功しました。広告が表示されます。 false:準備ができていないため失敗。広告は表示されません。</returns>
+        public bool ShowInterstitial()
         {
+#if UNITY_EDITOR
+            // エディタではロードが成功しても なにも表示されず ややこしいので、表示しない。
+#else
             if (IsLoadedInterstitial() == false)
             {
                 Debug.LogError("InterstitialAdがロードされていません");
                 return;
             }
             // 表示可能になる日時になっていれば表示
-            if (System.DateTime.Now >= interstitialNextPermittedTime)
+            if (DateTime.Now >= interstitialNextPermittedTime)
             {
                 interstitial.Show();
+                return true;
             }
+#endif
+            return false;
         }
 
         /// <summary>
