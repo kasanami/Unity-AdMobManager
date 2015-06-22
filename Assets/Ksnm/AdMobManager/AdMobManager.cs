@@ -226,7 +226,7 @@ namespace Ksnm
             if (IsLoadedInterstitial() == false)
             {
                 Debug.LogError("InterstitialAdがロードされていません");
-                return;
+                return false;
             }
             // 表示可能になる日時になっていれば表示
             if (DateTime.Now >= interstitialNextPermittedTime)
