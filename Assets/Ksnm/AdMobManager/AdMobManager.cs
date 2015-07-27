@@ -47,7 +47,13 @@ namespace Ksnm
         private TestDeviceInfo[] iosTestDeviceInfos;
 
         [SerializeField, HeaderAttribute("共通")]
-        public bool useTestDevice;
+        private bool useTestDevice;
+
+        [SerializeField]
+        private bool enableBanner = true;
+
+        [SerializeField]
+        private bool enableInterstitial = true;
 
         [SerializeField]
         private AdPosition bannerPosition;
@@ -99,6 +105,10 @@ namespace Ksnm
         /// </summary>
         private void LoadBanner()
         {
+            if (enableBanner == false)
+            {
+                return;
+            }
 #if UNITY_ANDROID
             var adUnitId = androidBannerUnitId;
 #elif UNITY_IPHONE
@@ -128,6 +138,10 @@ namespace Ksnm
         /// </summary>
         private void LoadInterstitial()
         {
+            if (enableInterstitial == false)
+            {
+                return;
+            }
 #if UNITY_ANDROID
             string adUnitId = androidInterstitialUnitId;
 #elif UNITY_IPHONE
